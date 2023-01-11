@@ -1,0 +1,11 @@
+Base de Datos Empresa:
+
+Empleados: numemp (PK), nombre, edad, oficina, puesto, fecha_contrato, jefe, cuota, ventas;
+
+Clientes: numclie (PK), nombre, resp(FK Empleados(numemp)), limitecredito;
+
+Oficinas: oficina (PK), ciudad, region, dir(FK Empleados(numemp)), objetivo, ventas;
+
+Productos:idfab (PK),   idproducto (PK), descripcion, precio, existencias;
+
+Pedidos: numpedido (PK), fechapedido, clie (FK Clientes(numclie)), resp (FK Empleados(numemp)), fab (FK Productos(idfab)), producto (FK Productos(idproducto)), cant, importe;
