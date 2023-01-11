@@ -45,6 +45,6 @@ INSERT INTO Equipos VALUES ('Sevilla', 'Sevilla', 'Ramón Sánchez Pizjuán', '1
 
 GO
 
-INSERT INTO Jugadores VALUES ('95121212J', 'Marioc', 'Casas', 'Gomez', '1995-12-12', 'Española', 1.80, 75, 'Delantero', 'Real Madrid')
+INSERT INTO Jugadores VALUES ('95121212J', 'Mario', 'Casas', 'Gomez', '1995-12-12', 'Española', 1.80, 75, 'Delantero', 'Real Madrid')
 
 GO
