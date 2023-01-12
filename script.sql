@@ -1,1 +1,2 @@
-USE Futbol
+DROP DATABASE Empresa
+GO
