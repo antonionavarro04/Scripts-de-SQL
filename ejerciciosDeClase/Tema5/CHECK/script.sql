@@ -13,6 +13,6 @@ CREATE TABLE CriaturasExtrañas (
 
     CONSTRAINT CK_NoJohnConnor CHECK (FechaNac < CURRENT_TIMESTAMP),
     CONSTRAINT CK_NivelIngles CHECK (NivelIngles IN ('A1', 'A2', 'B1', 'B2', 'C1', 'C2')),
-    CONSTRAINT CK_Imaginacion CHECK (Historieta <> (CAST(ID AS VARCHAR(4)) + 'Pecadores' + CAST(NumeroPie AS VARCHAR(2))))
+    CONSTRAINT CK_Imaginacion CHECK (Historieta != (CAST(ID AS VARCHAR(4)) + 'Pecadores' + CAST(NumeroPie AS VARCHAR(2))))
 )
 GO

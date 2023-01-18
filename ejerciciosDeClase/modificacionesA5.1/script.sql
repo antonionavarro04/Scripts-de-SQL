@@ -25,7 +25,7 @@ ADD CONSTRAINT CK_LimiteCredito CHECK (limitecredito > 0)
 
 -- 4 El nombre de los empleados no puede comenzar con A ni terminar con O
 ALTER TABLE Empleados
-ADD CONSTRAINT CK_NombreEmpleados CHECK (nombre NOT LIKE ('A%O'))
+ADD CONSTRAINT CK_NombreEmpleados CHECK (nombre <> ('A%O'))
 
 -- 5 El jefe no puede ser el mismo empleado
 ALTER TABLE Empleados
@@ -36,10 +36,22 @@ ALTER TABLE Empleados
 ADD CONSTRAINT FK_Empleados_Oficinas FOREIGN KEY (oficina) REFERENCES Oficinas (oficina) ON DELETE SET NULL
 
 ALTER TABLE Empleados
-ADD CONSTRAINT FK_Empleados_Empleados FOREIGN KEY (jefe) REFERENCES Empleados (nombre) ON UPDATE CASCADE
+ADD CONSTRAINT FK_Empleados_Empleados FOREIGN KEY (jefe) REFERENCES Empleados (nombre) ON UPDATE SET NULL
 
 ALTER TABLE Empleados
 ADD CONSTRAINT FK_Empleados_Clientes FOREIGN KEY (nombre) REFERENCES Clientes (resp) ON DELETE CASCADE
 
 ALTER TABLE Clientes
 ADD CONSTRAINT FK_Clientes_Empleados FOREIGN KEY (resp) REFERENCES Empleados (nombre) ON UPDATE NO ACTION
+
+ALTER TABLE Clientes
+ADD CONSTRAINT FK_Clientes_Pedidos FOREIGN KEY (numclie) REFERENCES Pedidos (clie) ON DELETE CASCADE
+
+ALTER TABLE Clientes
+ADD CONSTRAINT FK_Clientes_Pedidos FOREIGN KEY (numclie) REFERENCES Pedidos (clie) ON UPDATE NO ACTION
+
+ALTER TABLE Clientes
+ADD CONSTRAINT FK_Productos_Pedidos FOREIGN KEY (idproducto) REFERENCES Pedidos (producto) ON DELETE NO ACTION
+
+ALTER TABLE Clientes
+ADD CONSTRAINT FK_Productos_Pedidos FOREIGN KEY (idproducto) REFERENCES Pedidos(producto) ON UPDATE SET NULL
