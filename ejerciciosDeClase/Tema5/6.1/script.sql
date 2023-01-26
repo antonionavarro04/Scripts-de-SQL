@@ -1,0 +1,31 @@
+CREATE DATABASE Academia
+GO
+
+USE Academia
+CREATE TABLE Alumnos (
+    dni NVARCHAR(9) NOT NULL PRIMARY KEY,
+    nombre NVARCHAR(20) NOT NULL,
+)
+GO
+
+CREATE TABLE Asignaturas (
+    codigo INT NOT NULL PRIMARY KEY,
+    nombre NVARCHAR(20) NOT NULL,
+    horasSemanales INT NOT NULL,
+)
+GO
+
+CREATE TABLE Profesores (
+    dni NVARCHAR(9) NOT NULL PRIMARY KEY,
+    nombre NVARCHAR(20) NOT NULL,
+    imparte INT NULL FOREIGN KEY (imparte) REFERENCES Asignaturas (codigo) ON DELETE SET NULL,
+)
+GO
+
+CREATE TABLE Matriculas (
+    dni NVARCHAR(9) NOT NULL FOREIGN KEY (dni) REFERENCES Alumnos (dni) ON DELETE CASCADE ON UPDATE CASCADE,
+    codigo INT NOT NULL FOREIGN KEY (codigo) REFERENCES Asignaturas (codigo) ON DELETE CASCADE,
+    nota SMALLINT NOT NULL,
+    PRIMARY KEY (dni, codigo),
+)
+GO

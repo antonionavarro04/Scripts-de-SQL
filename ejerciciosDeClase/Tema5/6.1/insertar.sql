@@ -1,0 +1,4 @@
+USE Academia
+DELETE FROM Alumnos
+WHERE dni = '12345678A'
+GO

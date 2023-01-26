@@ -32,11 +32,11 @@ ALTER TABLE Empleados
 ADD CONSTRAINT CK_Jefe CHECK (jefe != nombre)
 
 -- ! Integridad Referencial
-ALTER TABLE Empleados
-ADD CONSTRAINT FK_Empleados_Oficinas FOREIGN KEY (oficina) REFERENCES Oficinas (oficina) ON DELETE SET NULL
+ALTER TABLE Oficinas
+ADD CONSTRAINT FK_Oficinas_Empleados FOREIGN KEY (oficina) REFERENCES Empleados (oficina) ON DELETE SET NULL
 
 ALTER TABLE Empleados
-ADD CONSTRAINT FK_Empleados_Empleados FOREIGN KEY (jefe) REFERENCES Empleados (nombre) ON UPDATE SET NULL
+ADD CONSTRAINT FK_Empleados_Empleados FOREIGN KEY (jefe) REFERENCES Empleados (nombre) ON UPDATE CASCADE
 
 ALTER TABLE Empleados
 ADD CONSTRAINT FK_Empleados_Clientes FOREIGN KEY (nombre) REFERENCES Clientes (resp) ON DELETE CASCADE
