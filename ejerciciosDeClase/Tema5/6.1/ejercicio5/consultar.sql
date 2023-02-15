@@ -1,0 +1,6 @@
+USE Ferreteria
+SELECT * FROM Tipo
+SELECT * FROM Venta
+SELECT * FROM Vende
+SELECT * FROM Tienda
+SELECT * FROM Producto

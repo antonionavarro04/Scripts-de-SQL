@@ -1,0 +1,5 @@
+GO
+USE Colegas
+SELECT * FROM Carros
+SELECT * FROM Libros
+SELECT * FROM People

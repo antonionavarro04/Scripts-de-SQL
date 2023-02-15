@@ -22,6 +22,13 @@ CREATE TABLE Profesores (
 )
 GO
 
+CREATE TABLE Notas (
+    dni NVARCHAR(9) NOT NULL FOREIGN KEY (dni) REFERENCES Alumnos (dni) ON DELETE CASCADE,
+    codigo INT NOT NULL FOREIGN KEY (codigo) REFERENCES Asignaturas (codigo),
+    nota SMALLINT NOT NULL,
+)
+GO
+
 CREATE TABLE Matriculas (
     dni NVARCHAR(9) NOT NULL FOREIGN KEY (dni) REFERENCES Alumnos (dni) ON DELETE CASCADE ON UPDATE CASCADE,
     codigo INT NOT NULL FOREIGN KEY (codigo) REFERENCES Asignaturas (codigo) ON DELETE CASCADE,
